@@ -3,7 +3,7 @@ const vm = new Vue({
     data: {
         produtos: {},
         produto: {},
-        mostrar: false,
+        carrinho: [],
     },
     methods: {
         fetchProdutos(){
@@ -17,9 +17,41 @@ const vm = new Vue({
             fetch(`./api/produtos/${id}/dados.json`)
             .then(r => r.json())
             .then(r =>{
-                this.produto = r;
-                this.mostrar =! this.mostrar;
+                this.produto = r;   
             });
+        },
+        fecharModal({target, currentTarget}) {
+            if(target === currentTarget){
+            this.produto = false;
+            }
+        },
+        abrirModal(id){
+            this.fetchProduto(id);
+            window.scrollTo({
+               top: 0,
+               behavior: "smooth",
+            });
+        },
+        adicionarItem(){
+            this.produto.estoque--;
+            const {id, nome, preco} = this.produto;
+            this.carrinho.push({id, nome, preco});
+        },
+        removerItem(index){
+            this.produto.estoque++;
+            this.carrinho.splice(index, 1);
+        }
+    },
+    computed: {
+        carrinhoTotal(){
+            let total = 0;
+            if(this.carrinho.length){
+                this.carrinho.forEach(item =>{
+                    total += item.preco;
+                });
+            }
+
+            return total;
         }
     },
 

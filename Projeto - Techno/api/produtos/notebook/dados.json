@@ -2,9 +2,9 @@
     "id": "notebook",
     "nome": "Notebook",
     "preco": 2999,
-    "descricao": "O empenho em analisar o surgimento do comércio virtual nos obriga à análise do impacto na agilidade decisória. Caros amigos, a adoção de políticas descentralizadoras oferece uma interessante oportunidade para verificação das diretrizes de desenvolvimento para o futuro. Assim mesmo, o consenso sobre a necessidade",
+    "descricao": "O empenho oferece uma interessante oportunidade para verificação das diretrizes de desenvolvimento para o futuro. Assim mesmo, o consenso sobre a necessidade",
     "estoque": 12,
-    "img": "./api/produtos/notebook/notebook-foto.jpeg",
+    "img": "./api/produtos/notebook/notebook-foto.jpg",
     "avaliacoes": [
         {
             "nome": "Fabio",

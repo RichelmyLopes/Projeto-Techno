@@ -12,16 +12,47 @@
 <body>
 
     <div id="app">
-    
-        <section class="modal">
-        </section>
+        <header class="header">
+            <img class="logo" src="./assets/techno.svg" alt="techno">
+            <div class="carrinho_menu">{{carrinhoTotal | numeroPreco}} | {{carrinho.length}}</div>
+            <ul>
+                <li v-for="(item, index) in carrinho">
+                    <p>{{item.nome}}</p>
+                    <button @click="removerItem(index)">X</button>
+                </li>
+            </ul>
+        </header>
+
         <section class="produtos">
-            <div class="produto" v-for="item in produtos" @click="fetchProduto(item.id)" :key="item.id">
+            <div class="produto" v-for="item in produtos" @click="abrirModal(item.id)" :key="item.id">
                 <img class="produto_img ":src="item.img" :alt="produto.nome">
                 <div  class="produto_info"> 
                     <span class="produto_preco">{{item.preco | numeroPreco}}</span>
                     <h2 class="produto_titulo">{{item.nome}}</h2>
-                    <p v-show="mostrar">{{produto.descricao}}</p>
+                </div>
+            </div>
+        </section>
+                <section class="modal" v-if="produto" @click="fecharModal">
+            <div class="modal_container">
+                <div class="modal_img">
+                    <img :src="produto.img" :alt="produto.nome"></img>
+                </div>
+                <div class="modal_dados">
+                    <button @click="produto = false" class="modal_fechar">X</button>
+                    <span class="modal_preco">{{produto.preco}}</span>
+                    <h2 class="modal_titulo">{{produto.nome}}</h2>
+                    <p>{{produto.descricao}}</p>
+                    <button v-if="produto.estoque > 0 "class="modal_btn" @click="adicionarItem">Adicionar Item</button>
+                    <button v-else class="modal_btn esgotado">Produto Esgotado</button>
+                </div>
+                <div class="avaliacoes">
+                    <h2 class="avaliacoes_sub">Avaliacoes</h2>
+                    <ul>
+                        <li v-for="item in produto.avaliacoes" class="avaliacao">
+                            <p class="avaliacao_descricao">{{item.descricao}}</p>
+                            <p class="avaliacao_usuario">{{item.nome}} | {{item.estrelas}} Estrelas</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

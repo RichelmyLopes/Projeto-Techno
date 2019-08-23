@@ -5,14 +5,14 @@
   "descricao": "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a necessidade de renovação processual causa impacto indireto na reavaliação do orçamento setorial.",
   "estoque": 2,
   "img": "./api/produtos/tablet/tablet-foto.jpg",
-  "reviews": [
+  "avaliacoes": [
     {
-      "nome": "Rogério",
+      "nome": "Cristian",
       "estrelas": 5,
       "descricao": "Gostei muito do produto, atendeu todas as minhas necessidades."
     },
     {
-      "nome": "Nathália",
+      "nome": "Carlos",
       "estrelas": 4,
       "descricao": "Gostei, mas o preço poderia ser melhor."
     }
